@@ -101,7 +101,7 @@ float2 ParallaxRaymarching(float2 uv, float2 viewDir)
     return uvOffset;
 }
 
-float ParallaxCloudNoise(float3 tangentViewDir, float2 uv)
+float ParallaxCloudNoise(float3 tangentViewDir, float2 uv, out float2 uv2)
 {
     tangentViewDir = normalize(tangentViewDir);
     tangentViewDir.xy = tangentViewDir.xy / (tangentViewDir.z + 0.42);
@@ -113,6 +113,7 @@ float ParallaxCloudNoise(float3 tangentViewDir, float2 uv)
     float2 uvOffset = PARALLAX_FUNCTION(uv, tangentViewDir);
     uv.xy += uvOffset;
 
+	uv2 = uv.xy;
     return CloudNoise(uv);
 }
 
@@ -127,9 +128,9 @@ void CloudNoise_float(float2 uv, float time, out float value)
     value = CloudNoise(uv);
 }
 
-void ParallaxCloudNoise_float(float3 viewDir, float parallaxStrength, float2 uv, float time, out float value)
+void ParallaxCloudNoise_float(float3 viewDir, float parallaxStrength, float2 uv, float time, out float height, out float2 uv2)
 {
     _CloudTime = time;
-    _ParallaxStrength = 1-parallaxStrength;
-    value = ParallaxCloudNoise(viewDir, uv);
+    _ParallaxStrength = -parallaxStrength;
+    height = ParallaxCloudNoise(viewDir, uv, uv2);
 }
