@@ -12,5 +12,5 @@
 
 [Parallax](https://catlikecoding.com/unity/tutorials/rendering/part-20/)
 
-[soft-clouds]: https://github.com/alexmalyutindev/unity-fbm-clouds/blob/master/Screenshots/Screenshot%202021-08-31%20144144.png 
-[parallax-clouds]: https://github.com/alexmalyutindev/unity-fbm-clouds/blob/master/Screenshots/Screenshot%202021-08-31%20143936.png 
+[soft-clouds]:     https://github.com/alexmalyutindev/unity-fbm-clouds-urp/blob/master/Screenshots/Screenshot%202021-08-31%20144144.png 
+[parallax-clouds]: https://github.com/alexmalyutindev/unity-fbm-clouds-urp/blob/master/Screenshots/Screenshot%202021-08-31%20143936.png 
